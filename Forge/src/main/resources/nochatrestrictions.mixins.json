@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.aizistral.nochatrestrictions.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.8",
+  "refmap": "nochatrestrictions.refmap.json",
+  "mixins": [],
+  "client": [
+	"MixinMinecraft"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

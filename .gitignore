@@ -1,0 +1,5 @@
+*.launch
+.settings
+.metadata
+.classpath
+.project

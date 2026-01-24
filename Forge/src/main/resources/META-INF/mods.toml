@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[35,)"
+license="WTFPL"
+issueTrackerURL="https://github.com/Aizistral-Studios/No-Chat-Restrictions/issues"
+
+[[mods]]
+modId="nochatrestrictions"
+version="${file.jarVersion}"
+displayName="No Chat Restrictions"
+displayURL="https://modrinth.com/project/no-chat-restrictions"
+authors="Aizistral"
+description="A mod dedicated to removing restrictions around the use of multiplayer features, including in-game chat."
+
+[[dependencies.nochatrestrictions]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.nochatrestrictions]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.4,1.17)"
+    ordering="NONE"
+    side="BOTH"
