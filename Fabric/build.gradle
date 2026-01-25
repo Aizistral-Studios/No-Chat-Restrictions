@@ -1,6 +1,8 @@
 plugins {
 	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
 	id 'maven-publish'
+    id "com.modrinth.minotaur" version "2.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 version = project.mod_version
@@ -53,4 +55,46 @@ java {
 
 jar {
 	inputs.property "archivesName", project.base.archivesName
+}
+
+curseforge {
+
+    project {
+        apiKey = findProperty('curseKey') ?: '0'
+        
+		id = '1442925'
+        releaseType = 'release'
+        changelogType = 'markdown'
+        changelog = file('../CHANGELOG.md')
+		
+		addGameVersion '1.16.4'
+		addGameVersion '1.16.5'
+		addGameVersion 'Fabric'
+		addGameVersion 'Java 8'
+		
+		relations {
+			requiredDependency 'fabric-api'
+		}
+    }
+}
+
+modrinth {
+    token = findProperty('modrinthKey') ?: '0'
+    projectId = "z440MEwJ"
+    versionNumber = project.version
+	versionName = "No Chat Restrictions v" + project.version
+    versionType = "release"
+	changelog = rootProject.file("../CHANGELOG.md").text
+    uploadFile = jar
+    gameVersions = [ '1.16.4', '1.16.5' ]
+	loaders = [ 'fabric' ]
+    
+	dependencies {
+		required.project "P7dR8mSH"
+    }
+}
+
+task upload {
+	dependsOn('modrinth')
+	dependsOn('curseforge')
 }
