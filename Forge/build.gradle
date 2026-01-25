@@ -1,21 +1,21 @@
+import com.modrinth.minotaur.TaskModrinthUpload
+
 buildscript {
     repositories {
-		maven { url "file:///${project.projectDir}/deps/" }
+		maven { url = uri("${rootDir}/deps") }
         maven { url = 'https://files.minecraftforge.net/maven' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url "https://plugins.gradle.org/m2/" }
+        gradlePluginPortal()
         mavenCentral()
         jcenter()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+		classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
+		classpath 'com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:1.2.0'
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
-}
-
-plugins {
-    id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 apply plugin: 'net.minecraftforge.gradle'
@@ -23,6 +23,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
+apply plugin: "com.modrinth.minotaur"
+apply plugin: "com.matthewprenger.cursegradle"
 
 mixin {
     add sourceSets.main, "nochatrestrictions.refmap.json"
@@ -119,29 +121,23 @@ curseforge {
 		addGameVersion '1.16.5'
 		addGameVersion 'Forge'
 		addGameVersion 'Java 8'
-		
-		relations {
-			//requiredDependency 'fabric-api'
-		}
     }
 }
 
-modrinth {
+task publishModrinth (type: TaskModrinthUpload){
     token = findProperty('modrinthKey') ?: '0'
     projectId = "z440MEwJ"
     versionNumber = project.version
-	versionName = "No Chat Restrictions v" + project.version
+	versionName = "No Chat Restrictions " + project.version
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = jar
-    gameVersions = [ '1.16.4', '1.16.5' ]
-	loaders = [ 'forge' ]
-    dependencies {
-		//required.project "P7dR8mSH"
-    }
+	addGameVersion('1.16.4')
+	addGameVersion('1.16.6')
+	addLoader('forge')
 }
 
 task upload {
-	dependsOn('modrinth')
+	dependsOn('publishModrinth')
 	dependsOn('curseforge')
 }
