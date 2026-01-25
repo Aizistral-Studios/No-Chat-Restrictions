@@ -4,6 +4,7 @@
 	"version": "${version}",
 	"name": "No Chat Restrictions",
 	"description": "A mod dedicated to removing restrictions around the use of multiplayer features, including in-game chat.",
+    "icon": "assets/nochatrestrictions/textures/misc/ncr_logo.png",
 	"authors": [
 		"Aizistral"
 	],

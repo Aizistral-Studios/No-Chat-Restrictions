@@ -2,6 +2,7 @@ modLoader="javafml"
 loaderVersion="[35,)"
 license="WTFPL"
 issueTrackerURL="https://github.com/Aizistral-Studios/No-Chat-Restrictions/issues"
+logoFile="ncr_logo.png"
 
 [[mods]]
 modId="nochatrestrictions"
