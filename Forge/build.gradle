@@ -124,20 +124,6 @@ curseforge {
     }
 }
 
-task publishModrinth (type: TaskModrinthUpload){
-    token = findProperty('modrinthKey') ?: '0'
-    projectId = "z440MEwJ"
-    versionNumber = project.version
-	versionName = "No Chat Restrictions " + project.version
-    versionType = "release"
-	changelog = rootProject.file("../CHANGELOG.md").text
-    uploadFile = jar
-	addGameVersion('1.16.4')
-	addGameVersion('1.16.6')
-	addLoader('forge')
-}
-
 task upload {
-	dependsOn('publishModrinth')
 	dependsOn('curseforge')
 }
