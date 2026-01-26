@@ -11,7 +11,7 @@ buildscript {
     dependencies {
        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
 		classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
-		classpath 'com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:2.8.10'
+		classpath 'com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:2.1.2'
         classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
 }
