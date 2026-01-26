@@ -92,9 +92,9 @@ jar {
         attributes([
             "Specification-Title": "NoChatRestrictions",
             "Specification-Vendor": "Aizistral",
-            "Specification-Version": project.version,
+            "Specification-Version": project.manifestVersion,
             "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
+            "Implementation-Version": project.manifestVersion,
             "Implementation-Vendor" :"NoChatRestrictions",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
 			"TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
