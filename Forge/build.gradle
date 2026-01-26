@@ -11,7 +11,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+       classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
 		classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
 		classpath 'com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:1.2.0'
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
@@ -34,12 +34,13 @@ version = project.modVersion
 group = 'com.aizistral.nochatrestrictions'
 archivesBaseName = 'NoChatRestrictions'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+// Mojang ships Java 16 to end users in 1.17+ instead of Java 8 in 1.16 or lower, so your mod should target Java 16.
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'snapshot', version: '20201028-1.16.3'
+     mappings channel: 'official', version: '1.17.1'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -79,7 +80,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.1.37'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.1.1'
     annotationProcessor 'org.spongepowered:mixin:0.8'
     annotationProcessor 'com.google.code.gson:gson:2.8.0'
     annotationProcessor 'com.google.guava:guava:21.0'
@@ -117,8 +118,8 @@ curseforge {
         changelogType = 'markdown'
         changelog = file('../CHANGELOG.md')
 		
-		addGameVersion '1.16.4'
-		addGameVersion '1.16.5'
+		addGameVersion '1.17.1'
+		addGameVersion '1.17'
 		addGameVersion 'Forge'
 		addGameVersion 'Java 8'
     }

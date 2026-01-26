@@ -40,7 +40,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 8
+	it.options.release = 16
 }
 
 java {
@@ -49,8 +49,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_1_8
-	targetCompatibility = JavaVersion.VERSION_1_8
+	sourceCompatibility = JavaVersion.VERSION_16
+	targetCompatibility = JavaVersion.VERSION_16
 }
 
 jar {
@@ -68,8 +68,8 @@ curseforge {
         changelog = file('../CHANGELOG.md')
 		mainArtifact(remapJar)
 		
-		addGameVersion '1.16.4'
-		addGameVersion '1.16.5'
+		addGameVersion '1.17.1'
+		addGameVersion '1.17'
 		addGameVersion 'Fabric'
 		addGameVersion 'Java 8'
 		
@@ -87,7 +87,7 @@ modrinth {
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = remapJar
-    gameVersions = [ '1.16.4', '1.16.5' ]
+    gameVersions = [ '1.17.1', '1.17' ]
 	loaders = [ 'fabric' ]
     
 	dependencies {
