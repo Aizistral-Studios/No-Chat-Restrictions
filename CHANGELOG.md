@@ -1,3 +1,3 @@
-#### **\[Build MC1.16.4-v1.0.0\]:**
+#### **\[Build MC1.17.1-v1.0.0\]:**
 
-- Initial release for Minecraft 1.16.4/1.16.5.
+- Initial release for Minecraft 1.17/1.17.1.
