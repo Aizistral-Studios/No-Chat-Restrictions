@@ -29,6 +29,11 @@ public class WrappedSocialInteractionsService implements SocialInteractionsServi
     }
 
     @Override
+    public boolean telemetryAllowed() {
+	return false;
+    }
+
+    @Override
     public boolean isBlockedPlayer(UUID playerID) {
 	return this.service.isBlockedPlayer(playerID);
     }
