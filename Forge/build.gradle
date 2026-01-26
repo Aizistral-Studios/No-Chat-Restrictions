@@ -130,7 +130,7 @@ modrinth {
 	versionName = "No Chat Restrictions " + project.version
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
-    uploadFile = remapJar
+    uploadFile = jar
     gameVersions = [ '1.17.1', '1.17' ]
 	loaders = [ 'forge' ]
 }
