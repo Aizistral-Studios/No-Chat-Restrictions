@@ -1,6 +1,5 @@
 pluginManagement {
 	repositories {
-		maven { url = uri("${rootDir}/deps") }
 		maven {
 			name = 'Fabric'
 			url = 'https://maven.fabricmc.net/'

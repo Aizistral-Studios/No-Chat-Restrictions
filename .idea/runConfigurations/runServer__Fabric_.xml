@@ -1,0 +1,40 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="runServer (Fabric)" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="azul-17" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <classpathModifications>
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.2\757920418805fb90bfebb3d46b1d9e7669fca2eb\lwjgl-glfw-3.3.2.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\com.mojang\text2speech\1.17.9\3cad216e3a7f0c19b4b394388bc9ffc446f13b14\text2speech-1.17.9.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl\3.3.2\4421d94af68e35dcaa31737a6fc59136a1e61b94\lwjgl-3.3.2.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-tinyfd\3.3.2\9f65c248dd77934105274fcf8351abb75b34327c\lwjgl-tinyfd-3.3.2.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-stb\3.3.2\a2550795014d622b686e9caac50b14baa87d2c70\lwjgl-stb-3.3.2.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-jemalloc\3.3.1\a817bcf213db49f710603677457567c37d53e103\lwjgl-jemalloc-3.3.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl\3.3.1\ae58664f88e18a9bb2c77b063833ca7aaec484cb\lwjgl-3.3.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-tinyfd\3.3.1\ff1914111ef2e3e0110ef2dabc8d8cdaad82347\lwjgl-tinyfd-3.3.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\com.ibm.icu\icu4j\71.1\9e7d3304c23f9ba5cb71915f7cce23231a57a445\icu4j-71.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.4.15\7f2e0c573eaa7a74bac2e89b359e1f73d92a0a1d\httpcore-4.4.15.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-openal\3.3.1\2623a6b8ae1dfcd880738656a9f0243d2e6840bd\lwjgl-openal-3.3.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\commons-codec\commons-codec\1.15\49d94806b6e3dc933dacbd8acb0fdbab8ebd1e5d\commons-codec-1.15.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\commons-logging\commons-logging\1.2\4bfc12adfe4842bf07b657f0369c4cb522955686\commons-logging-1.2.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-opengl\3.3.1\831a5533a21a5f4f81bbc51bb13e9899319b5411\lwjgl-opengl-3.3.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-opengl\3.3.2\ee8e95be0b438602038bc1f02dc5e3d011b1b216\lwjgl-opengl-3.3.2.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient\4.5.13\e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada\httpclient-4.5.13.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.1\cbac1b8d30cb4795149c1ef540f912671a8616d0\lwjgl-glfw-3.3.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-stb\3.3.1\b119297cf8ed01f247abe8685857f8e7fcf5980f\lwjgl-stb-3.3.1.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\com.mojang\patchy\2.2.10\da05971b07cbb379d002cf7eaec6a2048211fefc\patchy-2.2.10.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\com.mojang\blocklist\1.0.10\5c685c5ffa94c4cd39496c7184c1d122e515ecef\blocklist-1.0.10.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-jemalloc\3.3.2\877e17e39ebcd58a9c956dc3b5b777813de0873a\lwjgl-jemalloc-3.3.2.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.apache.commons\commons-compress\1.21\4ec95b60d4e86b5c95a0e919cb172a0af98011ef\commons-compress-1.21.jar" />
+      <entry exclude="true" path="D:\Github\GradleHome\caches\modules-2\files-2.1\org.lwjgl\lwjgl-openal\3.3.2\ae5357ed6d934546d3533993ea84c0cfb75eed95\lwjgl-openal-3.3.2.jar" />
+    </classpathModifications>
+    <option name="MAIN_CLASS_NAME" value="net.fabricmc.devlaunchinjector.Main" />
+    <module name="Fabric.main" />
+    <option name="PROGRAM_PARAMETERS" value="nogui" />
+    <shortenClasspath name="ARGS_FILE" />
+    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=D:\Workspaces\MCMods\Unified\No-Chat-Restrictions\Fabric\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=server -Dfabric.dli.main=net.fabricmc.loader.impl.launch.knot.KnotServer" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Fabric/run/" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

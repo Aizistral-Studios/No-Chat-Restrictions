@@ -1,8 +1,10 @@
 package com.aizistral.nochatrestrictions.core;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.aizistral.nochatrestrictions.NoChatRestrictions;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class NCRCore {
-    public static final Logger LOGGER = LogManager.getLogger("NoChatRestrictions");
+    public static final Logger LOGGER = LoggerFactory.getLogger("nochatrestrictions");
 }

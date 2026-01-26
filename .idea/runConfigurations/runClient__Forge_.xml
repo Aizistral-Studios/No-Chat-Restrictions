@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="runClient (Forge)" type="Application" factoryName="Application" singleton="false">
+    <envs>
+      <env name="MOD_CLASSES" value="nochatrestrictions%%$PROJECT_DIR$/../No-Chat-Restrictions\build\resources\main;nochatrestrictions%%$PROJECT_DIR$/../No-Chat-Restrictions\build\classes\java\main" />
+      <env name="MCP_MAPPINGS" value="official_1.20.1" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="cpw.mods.bootstraplauncher.BootstrapLauncher" />
+    <module name="Forge.main" />
+    <option name="PROGRAM_PARAMETERS" value="--launchTarget forgeclientuserdev --version MOD_DEV --assetIndex 5 --assetsDir D:\Github\GradleHome\caches\forge_gradle\assets --gameDir . --fml.forgeVersion 47.4.16 --fml.mcVersion 1.20.1 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20230612.114412" />
+    <option name="VM_PARAMETERS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=REGISTRIES -DlegacyClassPath.file=D:\Workspaces\MCMods\Unified\No-Chat-Restrictions\Forge\build\classpath\runClient_minecraftClasspath.txt -DignoreList=bootstraplauncher,securejarhandler,asm-commons,asm-util,asm-analysis,asm-tree,asm,JarJarFileSystems,client-extra,fmlcore,javafmllanguage,lowcodelanguage,mclanguage,forge- -DmergeModules=jna-5.10.0.jar,jna-platform-5.10.0.jar -Dforge.enabledGameTestNamespaces=nochatrestrictions -Dforge.enableGameTest=true -Djava.net.preferIPv6Addresses=system -p D:\Github\GradleHome\caches\modules-2\files-2.1\cpw.mods\bootstraplauncher\1.1.2\c546e00443d8432cda6baa1c860346980742628\bootstraplauncher-1.1.2.jar;D:\Github\GradleHome\caches\modules-2\files-2.1\cpw.mods\securejarhandler\2.1.10\51e6a22c6c716beb11e244bf5b8be480f51dd6b5\securejarhandler-2.1.10.jar;D:\Github\GradleHome\caches\modules-2\files-2.1\org.ow2.asm\asm-commons\9.8\36e4d212970388e5bd2c5180292012502df461bb\asm-commons-9.8.jar;D:\Github\GradleHome\caches\modules-2\files-2.1\org.ow2.asm\asm-util\9.8\395f1c1f035258511f27bc9b2583d76e4b143f59\asm-util-9.8.jar;D:\Github\GradleHome\caches\modules-2\files-2.1\org.ow2.asm\asm-analysis\9.8\b9747a320844b6cb1eacd90d8ecfd260a16c01d3\asm-analysis-9.8.jar;D:\Github\GradleHome\caches\modules-2\files-2.1\org.ow2.asm\asm-tree\9.8\18419ca5b77a2f81097c741e7872e6ab8d2f40d\asm-tree-9.8.jar;D:\Github\GradleHome\caches\modules-2\files-2.1\org.ow2.asm\asm\9.8\dc19ecb3f7889b7860697215cae99c0f9b6f6b4b\asm-9.8.jar;D:\Github\GradleHome\caches\modules-2\files-2.1\net.minecraftforge\JarJarFileSystems\0.3.19\2464eb7d6b9ddb9db36a82cf8a95193e5c6fe020\JarJarFileSystems-0.3.19.jar --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Forge/run" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks=":prepareRunClientCompile" externalProjectPath="$PROJECT_DIR$" />
+    </method>
+  </configuration>
+</component>

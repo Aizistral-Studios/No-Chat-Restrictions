@@ -1,8 +1,6 @@
 plugins {
-	id 'fabric-loom' version "${loom_version}"
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
 	id 'maven-publish'
-    id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 version = project.mod_version
@@ -23,7 +21,7 @@ repositories {
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
@@ -40,7 +38,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 8
+	it.options.release = 17
 }
 
 java {
@@ -49,62 +47,32 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_1_8
-	targetCompatibility = JavaVersion.VERSION_1_8
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
 	inputs.property "archivesName", project.base.archivesName
+
+	from("LICENSE") {
+		rename { "${it}_${inputs.properties.archivesName}"}
+	}
 }
 
-curseforge {
-
-    project {
-        apiKey = findProperty('curseKey') ?: '0'
-        
-		id = '1442925'
-        releaseType = 'release'
-        changelogType = 'markdown'
-        changelog = file('../CHANGELOG.md')
-		mainArtifact(remapJar)
-		
-		addGameVersion '1.16.4'
-		addGameVersion '1.16.5'
-		addGameVersion 'Fabric'
-		addGameVersion 'Java 8'
-		
-		relations {
-			requiredDependency 'fabric-api'
+// configure the maven publication
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
+			from components.java
 		}
-    }
-}
-
-modrinth {
-    token = findProperty('modrinthKey') ?: '0'
-    projectId = "z440MEwJ"
-    versionNumber = project.version
-	versionName = "No Chat Restrictions " + project.version
-    versionType = "release"
-	changelog = rootProject.file("../CHANGELOG.md").text
-    uploadFile = remapJar
-    gameVersions = [ '1.16.4', '1.16.5' ]
-	loaders = [ 'fabric' ]
-    
-	dependencies {
-		required.project "P7dR8mSH"
-    }
-}
-
-afterEvaluate {
-	tasks.named('modrinth') {
-		dependsOn(remapJar)
 	}
-	tasks.named('curseforge') {
-		dependsOn(remapJar)
-	}
-}
 
-task upload {
-	dependsOn('modrinth')
-	dependsOn('curseforge')
+	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+	repositories {
+		// Add repositories to publish to here.
+		// Notice: This block does NOT have the same function as the block in the top level.
+		// The repositories here will be used for publishing your artifact, not for
+		// retrieving dependencies.
+	}
 }
