@@ -1,5 +1,3 @@
-import com.modrinth.minotaur.TaskModrinthUpload
-
 buildscript {
     repositories {
 		maven { url = uri("${rootDir}/deps") }
@@ -13,7 +11,7 @@ buildscript {
     dependencies {
        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
 		classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
-		classpath 'com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:1.2.0'
+		classpath 'com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:2.8.10'
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
@@ -125,6 +123,19 @@ curseforge {
     }
 }
 
+modrinth {
+    token = findProperty('modrinthKey') ?: '0'
+    projectId = "z440MEwJ"
+    versionNumber = project.version
+	versionName = "No Chat Restrictions " + project.version
+    versionType = "release"
+	changelog = rootProject.file("../CHANGELOG.md").text
+    uploadFile = remapJar
+    gameVersions = [ '1.17.1', '1.17' ]
+	loaders = [ 'forge' ]
+}
+
 task upload {
+	dependsOn('modrinth')
 	dependsOn('curseforge')
 }
