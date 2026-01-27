@@ -3,7 +3,7 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: build
+name: Build Forge
 on: [pull_request, push]
 
 jobs:
@@ -21,13 +21,10 @@ jobs:
           distribution: 'microsoft'
       - name: make gradle wrapper executable
         run: chmod +x ./Forge/gradlew
-        run: chmod +x ./Fabric/gradlew
       - name: build
         run: ./Forge/gradlew build
-        run: ./Fabric/gradlew build
       - name: capture build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Artifacts
           path: Forge/build/libs/
-          path: Fabric/build/libs/
