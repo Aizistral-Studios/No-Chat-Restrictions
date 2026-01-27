@@ -6,8 +6,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.aizistral.nochatrestrictions.core.NCRCore;
-import com.aizistral.nochatrestrictions.core.WrappedSocialInteractionsService;
-import com.mojang.authlib.minecraft.SocialInteractionsService;
+import com.aizistral.nochatrestrictions.core.WrappedUserApiService;
+import com.mojang.authlib.minecraft.UserApiService;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 
 import net.minecraft.client.Minecraft;
@@ -16,14 +16,14 @@ import net.minecraft.client.main.GameConfig;
 @Mixin(Minecraft.class)
 public class MixinMinecraft {
 
-    @Inject(method = { "func_244735_a", "createSocialInteractions" }, at = @At("RETURN"), cancellable = true)
-    public void onCreateSocialInteractions(YggdrasilAuthenticationService authService, GameConfig gameConfig,
-	    CallbackInfoReturnable<SocialInteractionsService> info) {
-	SocialInteractionsService returnedService = info.getReturnValue();
+    @Inject(method = { "m_193585_", "createUserApiService" }, at = @At("RETURN"), cancellable = true)
+    public void onCreateUserApi(YggdrasilAuthenticationService authService, GameConfig gameConfig,
+	    CallbackInfoReturnable<UserApiService> info) {
+	UserApiService returnedService = info.getReturnValue();
 	assert returnedService != null;
-	info.setReturnValue(new WrappedSocialInteractionsService(returnedService));
+	info.setReturnValue(new WrappedUserApiService(returnedService));
 
-	NCRCore.LOGGER.info("Successfully supplanted SocialInteractionsService with a wrapped version.");
+	NCRCore.LOGGER.info("Successfully supplanted UserApiService with a wrapped version.");
     }
 
 }
