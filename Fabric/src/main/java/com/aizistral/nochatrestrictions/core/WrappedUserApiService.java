@@ -6,6 +6,7 @@ import java.util.concurrent.Executor;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.authlib.minecraft.TelemetrySession;
 import com.mojang.authlib.minecraft.UserApiService;
+import com.mojang.authlib.yggdrasil.response.KeyPairResponse;
 
 public class WrappedUserApiService implements UserApiService {
     private static final UserProperties FORCED_PROPERTIES;
@@ -46,6 +47,12 @@ public class WrappedUserApiService implements UserApiService {
     @Override
     public TelemetrySession newTelemetrySession(Executor executor) {
 	return TelemetrySession.DISABLED;
+    }
+
+    @Override
+    public KeyPairResponse getKeyPair() {
+	// Not doing anything with this as that's more of a No Chat Reports thing
+	return this.service.getKeyPair();
     }
 
 }
