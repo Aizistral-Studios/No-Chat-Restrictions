@@ -119,7 +119,7 @@ curseforge {
 		addGameVersion '1.17.1'
 		addGameVersion '1.17'
 		addGameVersion 'Forge'
-		addGameVersion 'Java 8'
+		addGameVersion 'Java 16'
     }
 }
 
