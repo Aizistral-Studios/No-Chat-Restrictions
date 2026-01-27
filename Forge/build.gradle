@@ -1,28 +1,23 @@
 buildscript {
     repositories {
-		maven { url = uri("${rootDir}/deps") }
-        maven { url = 'https://files.minecraftforge.net/maven' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         maven { url "https://plugins.gradle.org/m2/" }
         gradlePluginPortal()
-        mavenCentral()
-        jcenter()
     }
     dependencies {
-       classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-		classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
-		classpath 'com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:2.1.2'
         classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
 }
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'maven-publish'
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id "com.modrinth.minotaur" version "2.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
+}
+
 apply plugin: 'org.spongepowered.mixin'
-apply plugin: "com.modrinth.minotaur"
-apply plugin: "com.matthewprenger.cursegradle"
 
 mixin {
     add sourceSets.main, "nochatrestrictions.refmap.json"
@@ -32,13 +27,17 @@ version = project.modVersion
 group = 'com.aizistral.nochatrestrictions'
 archivesBaseName = 'NoChatRestrictions'
 
-// Mojang ships Java 16 to end users in 1.17+ instead of Java 8 in 1.16 or lower, so your mod should target Java 16.
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-     mappings channel: 'official', version: '1.17.1'
+    mappings channel: mapping_channel, version: mapping_version
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -78,7 +77,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.17.1-37.1.1'
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
     annotationProcessor 'com.google.code.gson:gson:2.8.0'
     annotationProcessor 'com.google.guava:guava:21.0'
@@ -116,10 +115,11 @@ curseforge {
         changelogType = 'markdown'
         changelog = file('../CHANGELOG.md')
 		
-		addGameVersion '1.17.1'
-		addGameVersion '1.17'
+		addGameVersion '1.18.2'
+		addGameVersion '1.18.1'
+		addGameVersion '1.18'
 		addGameVersion 'Forge'
-		addGameVersion 'Java 8'
+		addGameVersion 'Java 17'
     }
 }
 
@@ -131,7 +131,7 @@ modrinth {
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = jar
-    gameVersions = [ '1.17.1', '1.17' ]
+    gameVersions = [ '1.18.2', '1.18.1', '1.18' ]
 	loaders = [ 'forge' ]
 }
 
