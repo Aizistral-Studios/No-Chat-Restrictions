@@ -68,8 +68,7 @@ curseforge {
         changelog = file('../CHANGELOG.md')
 		mainArtifact(remapJar)
 		
-		addGameVersion '1.20.1'
-		addGameVersion '1.20'
+		addGameVersion '1.20.2'
 		addGameVersion 'Fabric'
 		addGameVersion 'Java 17'
 		
@@ -87,7 +86,7 @@ modrinth {
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = remapJar
-    gameVersions = [ '1.20.1', '1.20' ]
+    gameVersions = [ '1.20.2' ]
 	loaders = [ 'fabric' ]
     
 	dependencies {

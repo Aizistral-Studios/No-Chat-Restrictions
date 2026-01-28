@@ -115,10 +115,8 @@ curseforge {
         changelogType = 'markdown'
         changelog = file('../CHANGELOG.md')
 		
-		addGameVersion '1.20.1'
-		addGameVersion '1.20'
+		addGameVersion '1.20.2'
 		addGameVersion 'Forge'
-		addGameVersion 'NeoForge'
 		addGameVersion 'Java 17'
     }
 }
@@ -131,8 +129,8 @@ modrinth {
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = jar
-    gameVersions = [ '1.20.1', '1.20' ]
-	loaders = [ 'forge', 'neoforge' ]
+    gameVersions = [ '1.20.2' ]
+	loaders = [ 'forge' ]
 }
 
 task upload {
