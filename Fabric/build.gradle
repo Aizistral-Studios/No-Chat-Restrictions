@@ -40,7 +40,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {
@@ -49,8 +49,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
@@ -68,12 +68,9 @@ curseforge {
         changelog = file('../CHANGELOG.md')
 		mainArtifact(remapJar)
 		
-		addGameVersion '1.19.4'
-		addGameVersion '1.19.3'
-		addGameVersion '1.19.2'
-		addGameVersion '1.19.1'
+		addGameVersion '1.21.1'
 		addGameVersion 'Fabric'
-		addGameVersion 'Java 17'
+		addGameVersion 'Java '
 		
 		relations {
 			requiredDependency 'fabric-api'

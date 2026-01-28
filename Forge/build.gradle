@@ -115,12 +115,9 @@ curseforge {
         changelogType = 'markdown'
         changelog = file('../CHANGELOG.md')
 		
-		addGameVersion '1.19.4'
-		addGameVersion '1.19.3'
-		addGameVersion '1.19.2'
-		addGameVersion '1.19.1'
+		addGameVersion '1.21.1'
 		addGameVersion 'Forge'
-		addGameVersion 'Java 17'
+		addGameVersion 'Java 21'
     }
 }
 
