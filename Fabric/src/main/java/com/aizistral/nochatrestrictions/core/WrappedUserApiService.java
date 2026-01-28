@@ -34,7 +34,7 @@ public class WrappedUserApiService implements UserApiService {
     }
 
     @Override
-    public UserProperties properties() {
+    public UserProperties fetchProperties() {
 	return FORCED_PROPERTIES;
     }
 
