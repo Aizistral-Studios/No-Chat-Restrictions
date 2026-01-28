@@ -4,6 +4,8 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.0.116'
+    id "com.modrinth.minotaur" version "2.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 version = project.mod_version
@@ -68,4 +70,52 @@ tasks.withType(ProcessResources).configureEach {
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title": "NoChatRestrictions",
+            "Specification-Vendor": "Aizistral",
+            "Specification-Version": project.manifestVersion,
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.manifestVersion,
+            "Implementation-Vendor" :"NoChatRestrictions",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+curseforge {
+
+    project {
+        apiKey = findProperty('curseKey') ?: '0'
+        
+		id = '1442925'
+        releaseType = 'release'
+        changelogType = 'markdown'
+        changelog = file('../CHANGELOG.md')
+		
+		addGameVersion '1.20.2'
+		addGameVersion 'NeoForge'
+		addGameVersion 'Java 17'
+    }
+	
+}
+
+modrinth {
+    token = findProperty('modrinthKey') ?: '0'
+    projectId = "z440MEwJ"
+    versionNumber = project.version
+	versionName = "No Chat Restrictions " + project.version
+    versionType = "release"
+	changelog = rootProject.file("../CHANGELOG.md").text
+    uploadFile = jar
+    gameVersions = [ '1.20.2' ]
+	loaders = [ 'neoforge' ]
+}
+
+task upload {
+	dependsOn('modrinth')
+	dependsOn('curseforge')
 }
