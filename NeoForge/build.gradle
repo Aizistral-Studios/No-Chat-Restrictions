@@ -33,6 +33,7 @@ runs {
         // "REGISTRIES": For firing of registry events.
         // "REGISTRYDUMP": For getting the contents of all registries.
         systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'mixin.env.disableRefMap', 'true'
 
         // Recommended logging level for the console
         // You can set various levels here.

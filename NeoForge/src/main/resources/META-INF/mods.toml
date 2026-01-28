@@ -24,3 +24,6 @@ description="A mod dedicated to removing restrictions around the use of multipla
     versionRange="1.20.2"
     ordering="NONE"
     side="BOTH"
+	
+[[mixins]]
+config="nochatrestrictions.mixins.json"
