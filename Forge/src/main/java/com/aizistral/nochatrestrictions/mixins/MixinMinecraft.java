@@ -26,4 +26,9 @@ public class MixinMinecraft {
 	NCRCore.LOGGER.info("Successfully supplanted UserApiService with a wrapped version.");
     }
 
+    @Inject(method = { "m_294837_", "isNameBanned" }, at = @At("HEAD"), cancellable = true)
+    public void onCheckNameBan(CallbackInfoReturnable<Boolean> info) {
+	info.setReturnValue(Boolean.FALSE);
+    }
+
 }
