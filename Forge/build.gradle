@@ -28,7 +28,7 @@ group = 'com.aizistral.nochatrestrictions'
 archivesBaseName = 'NoChatRestrictions'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
@@ -132,7 +132,7 @@ modrinth {
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = jar
-    gameVersions = [ '1.19.4', '1.19.3', '1.19.2', '1.19.1' ]
+    gameVersions = [ '1.21.1' ]
 	loaders = [ 'forge' ]
 }
 

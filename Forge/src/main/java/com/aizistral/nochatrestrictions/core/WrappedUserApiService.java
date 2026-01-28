@@ -5,6 +5,7 @@ import java.util.UUID;
 import java.util.concurrent.Executor;
 
 import com.google.common.collect.ImmutableSet;
+import com.mojang.authlib.exceptions.AuthenticationException;
 import com.mojang.authlib.minecraft.TelemetrySession;
 import com.mojang.authlib.minecraft.UserApiService;
 import com.mojang.authlib.minecraft.report.AbuseReportLimits;
@@ -29,14 +30,22 @@ public class WrappedUserApiService implements UserApiService {
 
     private final UserApiService service;
 
+    //Unused? Override statement invalidated
     public WrappedUserApiService(UserApiService service) {
 	this.service = service;
     }
 
-    @Override
+
     public UserProperties properties() {
-	return FORCED_PROPERTIES;
+	    return FORCED_PROPERTIES;
     }
+
+    @Override
+    public UserProperties fetchProperties() throws AuthenticationException {
+        return null;
+    }
+
+
 
     @Override
     public boolean isBlockedPlayer(UUID playerID) {
