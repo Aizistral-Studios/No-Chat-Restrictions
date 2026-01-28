@@ -45,7 +45,7 @@ minecraft {
         client {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'info'
 			arg "-mixin.config=nochatrestrictions.mixins.json"
 
             mods {
@@ -58,7 +58,7 @@ minecraft {
         server {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'info'
 			arg "-mixin.config=nochatrestrictions.mixins.json"
 
             mods {
