@@ -13,7 +13,7 @@ import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.main.GameConfig;
 
-@Mixin(Minecraft.class)
+@Mixin(value = Minecraft.class, remap = false)
 public class MixinMinecraft {
 
     @Inject(method = { "m_193585_", "createUserApiService" }, at = @At("RETURN"), cancellable = true)
