@@ -1,0 +1,168 @@
+[20:45:08] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 26.1 with Fabric Loader 0.18.4
+[20:45:08] [main/INFO] (FabricLoader/Mappings) Mappings not present!
+[20:45:09] [main/INFO] (FabricLoader) Loading 47 mods:
+	- fabric-api 0.144.0+26.1
+	- fabric-api-base 2.0.3+ece0632359
+	- fabric-api-lookup-api-v1 2.0.10+d5a053b659
+	- fabric-biome-api-v1 18.0.4+35c80edc59
+	- fabric-block-api-v1 3.0.2+ec56b60159
+	- fabric-block-getter-api-v2 2.0.6+ec56b60159
+	- fabric-client-gametest-api-v1 5.0.12+688f513059
+	- fabric-command-api-v2 3.0.5+e2bdee7859
+	- fabric-content-registries-v0 11.0.12+d871b99e59
+	- fabric-convention-tags-v2 4.3.2+c37e6e5f59
+	- fabric-crash-report-info-v1 1.0.3+9f78a5a859
+	- fabric-creative-tab-api-v1 5.0.10+d871b99e59
+	- fabric-data-attachment-api-v1 2.2.2+35c80edc59
+	- fabric-data-generation-api-v1 24.0.17+35c80edc59
+	- fabric-debug-api-v1 1.0.1+c792624d59
+	- fabric-dimensions-v1 5.1.4+9cbf5da559
+	- fabric-entity-events-v1 5.0.2+e2bdee7859
+	- fabric-events-interaction-v0 5.1.10+c82f046159
+	- fabric-game-rule-api-v1 4.0.5+d871b99e59
+	- fabric-gametest-api-v1 4.0.13+00a1fba659
+	- fabric-item-api-v1 14.1.0+9833182c59
+	- fabric-key-mapping-api-v1 2.0.4+e2bdee7859
+	- fabric-lifecycle-events-v1 4.0.6+a9b9c17659
+	- fabric-loot-api-v3 3.0.11+00a1fba659
+	- fabric-menu-api-v1 2.0.12+d871b99e59
+	- fabric-message-api-v1 7.0.4+e2bdee7859
+	- fabric-networking-api-v1 6.3.0+50a808ce59
+	- fabric-object-builder-api-v1 23.0.13+b61fef4359
+	- fabric-particles-v1 5.0.14+b61fef4359
+	- fabric-recipe-api-v1 9.0.13+be4b75ae59
+	- fabric-registry-sync-v0 7.0.12+b61fef4359
+	- fabric-rendering-fluids-v1 6.0.1+d871b99e59
+	- fabric-rendering-v1 23.0.3+2fb0624759
+	- fabric-resource-conditions-api-v1 6.0.5+00a1fba659
+	- fabric-resource-loader-v0 3.3.16+4fc5413f59
+	- fabric-resource-loader-v1 2.0.9+d871b99e59
+	- fabric-screen-api-v1 5.0.1+d871b99e59
+	- fabric-serialization-api-v1 2.0.3+11a26f3159
+	- fabric-sound-api-v1 2.0.4+11a26f3159
+	- fabric-tag-api-v1 2.0.9+11a26f3159
+	- fabric-transfer-api-v1 8.0.2+d871b99e59
+	- fabric-transitive-access-wideners-v1 8.0.11+d871b99e59
+	- fabricloader 0.18.4
+	- java 25
+	- minecraft 26.1
+	- mixinextras 0.5.0
+	- nochatrestrictions 1.0.0
+[20:45:09] [main/WARN] (FabricLoader/ModRemap) Runtime mod remapping disabled due to no fabric.remapClasspathFile being specified. You may need to update loom.
+[20:45:09] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/jaspe/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.0+mixin.0.8.7/cf31463202f72d03b0ef1e1e38e8ee71b7faaab6/sponge-mixin-0.17.0+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[20:45:10] [main/WARN] (FabricLoader/Mixin) The requested compatibility level JAVA_25 is higher than the level supported by the active subsystem 'Knot/Fabric' which supports JAVA_22. This is not a supported configuration and instability may occur.
+[20:45:10] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_25
+[20:45:14] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0).
+[20:45:18] [Datafixer Bootstrap/INFO] (Minecraft) 291 Datafixer optimizations took 2881 milliseconds
+[20:45:37] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[20:45:37] [Render thread/INFO] (Minecraft) Setting user: Player730
+[20:45:41] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.4.1-snapshot
+[20:45:43] [Render thread/INFO] (Minecraft) Using optional rendering extensions: GL_ARB_buffer_storage, GL_KHR_debug, GL_ARB_vertex_attrib_binding, GL_ARB_direct_state_access, GL_EXT_texture_filter_anisotropic
+[20:45:45] [Download-1/INFO] (Minecraft) Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: FabricMC
+[20:45:45] [Download-1/ERROR] (Minecraft) Failed to fetch Realms feature flags
+com.mojang.realmsclient.exception.RealmsServiceException: Realms authentication error with message 'java.lang.RuntimeException: Failed to parse into SignedJWT: FabricMC'
+	at knot//com.mojang.realmsclient.client.RealmsClient.execute(RealmsClient.java:526)
+	at knot//com.mojang.realmsclient.client.RealmsClient.fetchFeatureFlags(RealmsClient.java:186)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[20:45:45] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-getter-api-v2, fabric-client-gametest-api-v1, fabric-command-api-v2, fabric-content-registries-v0, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-creative-tab-api-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-debug-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-key-mapping-api-v1, fabric-lifecycle-events-v1, fabric-loot-api-v3, fabric-menu-api-v1, fabric-message-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-rendering-fluids-v1, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-resource-loader-v1, fabric-screen-api-v1, fabric-serialization-api-v1, fabric-sound-api-v1, fabric-tag-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader
+[20:45:48] [Worker-Main-1/INFO] (Minecraft) Found unifont_all_no_pua-17.0.01.hex, loading
+[20:45:48] [Worker-Main-3/INFO] (Minecraft) Found unifont_pua-17.0.01.hex, loading
+[20:45:49] [Worker-Main-1/INFO] (Minecraft) Found unifont_jp_patch-17.0.01.hex, loading
+[20:45:54] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Speakers (3- USB Audio Device)
+[20:45:54] [Render thread/INFO] (Minecraft) Sound engine started
+[20:45:54] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[20:45:54] [Render thread/INFO] (Minecraft) Created: 128x128x0 minecraft:textures/atlas/decorated_pot.png-atlas
+[20:45:54] [Render thread/INFO] (Minecraft) Created: 2048x1024x0 minecraft:textures/atlas/armor_trims.png-atlas
+[20:45:54] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[20:45:54] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/shield_patterns.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/chest.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/celestials.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/beds.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/items.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 1024x1024x0 minecraft:textures/atlas/gui.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 128x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/signs.png-atlas
+[20:45:55] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/shulker_boxes.png-atlas
+[20:45:56] [IO-Worker-1/INFO] (Minecraft) Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: FabricMC
+[20:45:56] [IO-Worker-1/ERROR] (Minecraft) Couldn't connect to realms
+com.mojang.realmsclient.exception.RealmsServiceException: Realms authentication error with message 'java.lang.RuntimeException: Failed to parse into SignedJWT: FabricMC'
+	at knot//com.mojang.realmsclient.client.RealmsClient.execute(RealmsClient.java:526)
+	at knot//com.mojang.realmsclient.client.RealmsClient.clientCompatible(RealmsClient.java:307)
+	at knot//com.mojang.realmsclient.RealmsAvailability.lambda$check$0(RealmsAvailability.java:48)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[20:46:10] [Render thread/INFO] (Minecraft) Connecting to jc.playmc.be, 25565
+[20:46:11] [Download-1/ERROR] (Minecraft) Failed to retrieve profile key pair
+com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:103)
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.post(MinecraftClient.java:64)
+	at knot//com.mojang.authlib.yggdrasil.YggdrasilUserApiService.getKeyPair(YggdrasilUserApiService.java:61)
+	at knot//com.aizistral.nochatrestrictions.client.WrappedUserApiService.getKeyPair(WrappedUserApiService.java:48)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.fetchProfileKeyPair(AccountProfileKeyPairManager.java:128)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.lambda$readOrFetchProfileKeyPair$0(AccountProfileKeyPairManager.java:77)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[20:46:18] [Render thread/INFO] (Minecraft) Connecting to jc.playmc.be, 25565
+[20:46:18] [Download-1/ERROR] (Minecraft) Failed to retrieve profile key pair
+com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:103)
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.post(MinecraftClient.java:64)
+	at knot//com.mojang.authlib.yggdrasil.YggdrasilUserApiService.getKeyPair(YggdrasilUserApiService.java:61)
+	at knot//com.aizistral.nochatrestrictions.client.WrappedUserApiService.getKeyPair(WrappedUserApiService.java:48)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.fetchProfileKeyPair(AccountProfileKeyPairManager.java:128)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.lambda$readOrFetchProfileKeyPair$0(AccountProfileKeyPairManager.java:77)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[20:52:27] [Render thread/ERROR] (Minecraft) Can't ping multiiii.aternos.me: Internal Exception: java.net.SocketException: Connection reset
+[20:53:07] [Render thread/ERROR] (Minecraft) Can't ping multiiii.aternos.me: Internal Exception: java.net.SocketException: Connection reset
+[20:53:09] [Render thread/INFO] (Minecraft) Connecting to multiiii.aternos.me, 25565
+[20:53:09] [Download-4/ERROR] (Minecraft) Failed to retrieve profile key pair
+com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:103)
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.post(MinecraftClient.java:64)
+	at knot//com.mojang.authlib.yggdrasil.YggdrasilUserApiService.getKeyPair(YggdrasilUserApiService.java:61)
+	at knot//com.aizistral.nochatrestrictions.client.WrappedUserApiService.getKeyPair(WrappedUserApiService.java:48)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.fetchProfileKeyPair(AccountProfileKeyPairManager.java:128)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.lambda$readOrFetchProfileKeyPair$0(AccountProfileKeyPairManager.java:77)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[20:53:17] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 2 reached during a single frame. New capacity will be 4.
+[20:53:17] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 4 reached during a single frame. New capacity will be 8.
+[20:53:19] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[20:53:20] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 8 reached during a single frame. New capacity will be 16.
+[20:53:20] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 2 reached during a single frame. New capacity will be 4.
+[20:54:03] [Render thread/WARN] (Minecraft) Client disconnected with reason: Kicked by an operator
+[20:55:17] [Render thread/INFO] (Minecraft) Connecting to multiiii.aternos.me, 25565
+[20:55:17] [Download-8/ERROR] (Minecraft) Failed to retrieve profile key pair
+com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:103)
+	at knot//com.mojang.authlib.minecraft.client.MinecraftClient.post(MinecraftClient.java:64)
+	at knot//com.mojang.authlib.yggdrasil.YggdrasilUserApiService.getKeyPair(YggdrasilUserApiService.java:61)
+	at knot//com.aizistral.nochatrestrictions.client.WrappedUserApiService.getKeyPair(WrappedUserApiService.java:48)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.fetchProfileKeyPair(AccountProfileKeyPairManager.java:128)
+	at knot//net.minecraft.client.multiplayer.AccountProfileKeyPairManager.lambda$readOrFetchProfileKeyPair$0(AccountProfileKeyPairManager.java:77)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+[20:55:27] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[20:55:28] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 4 reached during a single frame. New capacity will be 8.
+[20:55:28] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 8 reached during a single frame. New capacity will be 16.
+[20:55:28] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 16 reached during a single frame. New capacity will be 32.
+[20:55:35] [Render thread/INFO] (Minecraft) [Not Secure] [CHAT] <Player730> THE PARTION
+[20:55:35] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 32 reached during a single frame. New capacity will be 64.
+[20:55:38] [Render thread/INFO] (Minecraft) Resizing Chunk Sections UBO, capacity limit of 64 reached during a single frame. New capacity will be 128.
+[20:55:41] [Render thread/INFO] (Minecraft) Stopping!

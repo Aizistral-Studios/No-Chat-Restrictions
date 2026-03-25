@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "nochatrestrictions",
+  "version": "${version}",
+  "name": "nochatrestrictions",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/nochatrestrictions/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.aizistral.nochatrestrictions.client.NochatrestrictionsDataGenerator"
+    ],
+    "client": [
+      "com.aizistral.nochatrestrictions.client.NochatrestrictionsClient"
+    ],
+    "main": [
+      "com.aizistral.nochatrestrictions.Nochatrestrictions"
+    ]
+  },
+  "mixins": [
+    "nochatrestrictions.mixins.json",
+    {
+      "config": "nochatrestrictions.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
