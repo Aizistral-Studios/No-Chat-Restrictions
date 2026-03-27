@@ -32,30 +32,17 @@ minecraft {
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
-        client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'info'
-			arg "-mixin.config=nochatrestrictions.mixins.json"
-
-            mods {
-                nochatrestrictions {
-                    source sourceSets.main
-                }
-            }
+		 configureEach {
+            workingDir = layout.projectDirectory.dir('run')
+            systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
+            systemProperty 'forge.enabledGameTestNamespaces', 'nochatrestrictions'
+			args '--mixin.config=nochatrestrictions.mixins.json'
         }
+		
+		register('client')
 
-        server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'info'
-			arg "-mixin.config=nochatrestrictions.mixins.json"
-
-            mods {
-                nochatrestrictions {
-                    source sourceSets.main
-                }
-            }
+        register('server') {
+            args '--nogui'
         }
     }
 }
