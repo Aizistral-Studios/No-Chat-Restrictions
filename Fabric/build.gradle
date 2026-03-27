@@ -92,7 +92,6 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
 	mainFile.addGameVersion(project.minecraft_version)
 	
 	mainFile.addRequirement('fabric-api')
-	
 }
 
 afterEvaluate {

@@ -12,7 +12,7 @@ plugins {
     id 'eclipse'
     id 'net.minecraftforge.gradle' version '[7.0.17,8)'
     id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id 'net.darkhax.curseforgegradle' version '1.+'
 }
 
 version = project.modVersion
@@ -78,31 +78,21 @@ jar {
     }
 }
 
-curseforge {
-
-    project {
-        apiKey = findProperty('curseKey') ?: '0'
-        
-		id = '1442925'
-        releaseType = 'release'
-        changelogType = 'markdown'
-        changelog = file('../CHANGELOG.md')
-		
-		addGameVersion '1.21.11'
-		addGameVersion '1.21.10'
-		addGameVersion '1.21.9'
-		addGameVersion '1.21.8'
-		addGameVersion '1.21.7'
-		addGameVersion '1.21.6'
-		addGameVersion '1.21.5'
-		addGameVersion '1.21.4'
-		addGameVersion '1.21.3'
-		addGameVersion '1.21.2'
-		addGameVersion '1.21.1'
-		addGameVersion '1.21'
-		addGameVersion 'Forge'
-		addGameVersion 'Java 21'
-    }
+task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+	disableVersionDetection()
+	
+	apiToken = findProperty('curseKey') ?: '0'
+	
+	def projectId = '1442925'
+	def mainFile = upload(projectId, jar)
+	
+	mainFile.changelogType = 'markdown'
+	mainFile.changelog = rootProject.file("../CHANGELOG.md").text
+	mainFile.releaseType = 'release'
+	
+	mainFile.addModLoader('Forge')
+	mainFile.addJavaVersion('Java 25')
+	mainFile.addGameVersion(project.minecraft_version)
 }
 
 modrinth {
@@ -114,18 +104,7 @@ modrinth {
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = jar
     gameVersions = [
-		'1.21.11', 
-		'1.21.10',
-		'1.21.9',
-		'1.21.8',
-		'1.21.7',
-		'1.21.6',
-		'1.21.5',
-		'1.21.4',
-		'1.21.3',
-		'1.21.2',
-		'1.21.1',
-		'1.21'
+		project.minecraft_version
 	]
 	loaders = [ 'forge' ]
 }
