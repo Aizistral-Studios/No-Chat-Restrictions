@@ -16,7 +16,7 @@ import net.minecraft.client.main.GameConfig;
 @Mixin(Minecraft.class)
 public class MixinMinecraft {
 
-    @Inject(method = { "m_193585_", "createUserApiService" }, at = @At("RETURN"), cancellable = true)
+    @Inject(method = "createUserApiService", at = @At("RETURN"), cancellable = true)
     public void onCreateUserApi(YggdrasilAuthenticationService authService, GameConfig gameConfig,
 	    CallbackInfoReturnable<UserApiService> info) {
 	UserApiService returnedService = info.getReturnValue();
@@ -26,7 +26,7 @@ public class MixinMinecraft {
 	NCRCore.LOGGER.info("Successfully supplanted UserApiService with a wrapped version.");
     }
 
-    @Inject(method = { "m_294837_", "isNameBanned" }, at = @At("HEAD"), cancellable = true)
+    @Inject(method = "isNameBanned", at = @At("HEAD"), cancellable = true)
     public void onCheckNameBan(CallbackInfoReturnable<Boolean> info) {
 	info.setReturnValue(Boolean.FALSE);
     }
