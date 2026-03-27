@@ -2,7 +2,7 @@ plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
     id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id 'net.darkhax.curseforgegradle' version '1.+'
 }
 
 version = project.mod_version
@@ -57,27 +57,6 @@ jar {
 	inputs.property "archivesName", project.base.archivesName
 }
 
-curseforge {
-
-    project {
-        apiKey = findProperty('curseKey') ?: '0'
-        
-		id = '1442925'
-        releaseType = 'release'
-        changelogType = 'markdown'
-        changelog = file('../CHANGELOG.md')
-		mainArtifact(jar)
-		
-		addGameVersion project.minecraft_version
-		addGameVersion 'Fabric'
-		addGameVersion 'Java 25'
-		
-		relations {
-			requiredDependency 'fabric-api'
-		}
-    }
-}
-
 modrinth {
     token = findProperty('modrinthKey') ?: '0'
     projectId = "z440MEwJ"
@@ -94,6 +73,26 @@ modrinth {
 	dependencies {
 		required.project "P7dR8mSH"
     }
+}
+
+task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+	disableVersionDetection()
+	
+	apiToken = findProperty('curseKey') ?: '0'
+	
+	def projectId = '1442925'
+	def mainFile = upload(projectId, jar)
+	
+	mainFile.changelogType = 'markdown'
+	mainFile.changelog = rootProject.file("../CHANGELOG.md").text
+	mainFile.releaseType = 'release'
+	
+	mainFile.addModLoader('Fabric')
+	mainFile.addJavaVersion('Java 25')
+	mainFile.addGameVersion(project.minecraft_version)
+	
+	mainFile.addRequirement('fabric-api')
+	
 }
 
 afterEvaluate {
