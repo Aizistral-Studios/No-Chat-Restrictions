@@ -1,3 +1,3 @@
-#### **\[Build MC1.21.11-v1.0.0\]:**
+#### **\[Build MC26.1-v1.1.0\]:**
 
-- Initial release for Minecraft 1.21 through 1.21.11.
+- Initial release for Minecraft 26.1.
