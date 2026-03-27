@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version "${loom_version}"
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
     id "com.modrinth.minotaur" version "2.+"
     id "com.matthewprenger.cursegradle" version "1.4.0"
@@ -21,14 +21,14 @@ repositories {
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
+	// Minecraft
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	
+	// Fabric Loader
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 }
 
 processResources {
@@ -66,7 +66,7 @@ curseforge {
         releaseType = 'release'
         changelogType = 'markdown'
         changelog = file('../CHANGELOG.md')
-		mainArtifact(remapJar)
+		mainArtifact(jar)
 		
 		addGameVersion project.minecraft_version
 		addGameVersion 'Fabric'
@@ -85,7 +85,7 @@ modrinth {
 	versionName = "No Chat Restrictions " + project.version
     versionType = "release"
 	changelog = rootProject.file("../CHANGELOG.md").text
-    uploadFile = remapJar
+    uploadFile = jar
     gameVersions = [
 		project.minecraft_version
 	]
@@ -98,10 +98,10 @@ modrinth {
 
 afterEvaluate {
 	tasks.named('modrinth') {
-		dependsOn(remapJar)
+		dependsOn(jar)
 	}
 	tasks.named('curseforge') {
-		dependsOn(remapJar)
+		dependsOn(jar)
 	}
 }
 
