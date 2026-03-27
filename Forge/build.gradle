@@ -61,6 +61,10 @@ dependencies {
 	annotationProcessor 'net.minecraftforge:eventbus-validator:7.0.1'
 }
 
+tasks.withType(Jar) {
+	archivesBaseName = project.archivesBaseName
+}
+
 jar {
     manifest {
         attributes([
