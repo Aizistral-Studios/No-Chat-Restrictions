@@ -7,8 +7,9 @@ buildscript {
 }
 
 plugins {
-    id 'eclipse'
+    id 'java'
     id 'idea'
+    id 'eclipse'
     id 'net.minecraftforge.gradle' version '[7.0.17,8)'
     id "com.modrinth.minotaur" version "2.+"
     id "com.matthewprenger.cursegradle" version "1.4.0"
