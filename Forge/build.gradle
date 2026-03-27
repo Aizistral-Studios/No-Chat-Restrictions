@@ -14,10 +14,6 @@ plugins {
     id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
-mixin {
-    add sourceSets.main, "nochatrestrictions.refmap.json"
-}
-
 version = project.modVersion
 group = 'com.aizistral.nochatrestrictions'
 archivesBaseName = 'NoChatRestrictions'
