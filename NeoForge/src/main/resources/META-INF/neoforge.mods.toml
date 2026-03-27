@@ -21,7 +21,7 @@ description="A mod dedicated to removing restrictions around the use of multipla
 [[dependencies.nochatrestrictions]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.21,1.21.11]"
+    versionRange="[26.1,)"
     ordering="NONE"
     side="BOTH"
 	
