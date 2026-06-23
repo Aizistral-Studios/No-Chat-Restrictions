@@ -17,7 +17,7 @@ import net.minecraft.client.main.GameConfig;
 public class MixinMinecraft {
 
     @Inject(method = "createUserApiService", at = @At("RETURN"), cancellable = true)
-    public void onCreateUserApi(YggdrasilAuthenticationService authService, GameConfig gameConfig,
+    private static void onCreateUserApi(YggdrasilAuthenticationService authService, GameConfig gameConfig,
 	    CallbackInfoReturnable<UserApiService> info) {
 	UserApiService returnedService = info.getReturnValue();
 	assert returnedService != null;
@@ -27,7 +27,7 @@ public class MixinMinecraft {
     }
 
     @Inject(method = "isNameBanned", at = @At("HEAD"), cancellable = true)
-    public void onCheckNameBan(CallbackInfoReturnable<Boolean> info) {
+    private void onCheckNameBan(CallbackInfoReturnable<Boolean> info) {
 	info.setReturnValue(Boolean.FALSE);
     }
 
