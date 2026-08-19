@@ -94,6 +94,7 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
 	mainFile.changelog = rootProject.file("../CHANGELOG.md").text
 	mainFile.releaseType = 'release'
 	
+	mainFile.addEnvironment('Client')
 	mainFile.addModLoader('Forge')
 	mainFile.addJavaVersion('Java 25')
 	mainFile.addGameVersion(project.minecraft_version)
