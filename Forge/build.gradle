@@ -97,7 +97,9 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
 	mainFile.addEnvironment('Client')
 	mainFile.addModLoader('Forge')
 	mainFile.addJavaVersion('Java 25')
-	mainFile.addGameVersion(project.minecraft_version)
+	mainFile.addGameVersion('26.1.2')
+	mainFile.addGameVersion('26.1.1')
+	mainFile.addGameVersion('26.1')
 }
 
 modrinth {
@@ -109,7 +111,9 @@ modrinth {
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = jar
     gameVersions = [
-		project.minecraft_version
+		'26.1.2',
+		'26.1.1',
+		'26.1'
 	]
 	loaders = [ 'forge' ]
 }
