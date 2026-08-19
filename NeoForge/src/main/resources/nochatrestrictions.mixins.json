@@ -6,7 +6,8 @@
   "refmap": "nochatrestrictions.refmap.json",
   "mixins": [],
   "client": [
-	"MixinMinecraft"
+	"MixinMinecraft",
+	"MixinYggdrasilUserApiService"
   ],
   "injectors": {
     "defaultRequire": 1
