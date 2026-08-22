@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.aizistral.nochatrestrictions.core.NCRCore;
 import com.aizistral.nochatrestrictions.core.WrappedUserApiService;
 import com.mojang.authlib.minecraft.UserApiService;
+import com.mojang.authlib.minecraft.UserApiService.UserProperties;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 
 import net.minecraft.client.Minecraft;
@@ -24,6 +25,14 @@ public class MixinMinecraft {
 	info.setReturnValue(new WrappedUserApiService(returnedService));
 
 	NCRCore.LOGGER.info("Successfully supplanted UserApiService with a wrapped version.");
+    }
+
+    // Account switchers fetch the properties themselves and put the result straight into
+    // userPropertiesFuture, so wrapping the service on its own doesn't always stick.
+    // Everything that gates chat/multiplayer/realms reads them back through here.
+    @Inject(method = "userProperties", at = @At("RETURN"), cancellable = true)
+    public void onGetUserProperties(CallbackInfoReturnable<UserProperties> info) {
+	info.setReturnValue(NCRCore.FORCED_USER_PROPERTIES);
     }
 
     @Inject(method = "isNameBanned", at = @At("HEAD"), cancellable = true)
