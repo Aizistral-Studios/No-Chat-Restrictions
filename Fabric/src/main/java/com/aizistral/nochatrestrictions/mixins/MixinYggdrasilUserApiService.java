@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.aizistral.nochatrestrictions.config.NCRConfig;
+import com.aizistral.nochatrestrictions.core.NCRCore;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.authlib.minecraft.TelemetrySession;
 import com.mojang.authlib.minecraft.UserApiService.UserFlag;
@@ -28,6 +29,10 @@ import com.mojang.authlib.yggdrasil.YggdrasilUserApiService;
  */
 @Mixin(value = YggdrasilUserApiService.class, remap = false)
 public class MixinYggdrasilUserApiService {
+
+    static {
+	NCRCore.LOGGER.info("MixinYggdrasilUserApiService initialized succesfully.");
+    }
 
     @Inject(method = "fetchProperties", at = @At("RETURN"), cancellable = true)
     private void onFetchProperties(CallbackInfoReturnable<UserProperties> info) {
