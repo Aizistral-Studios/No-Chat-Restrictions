@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import com.aizistral.nochatrestrictions.core.NCRCore;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.authlib.minecraft.TelemetrySession;
 import com.mojang.authlib.minecraft.UserApiService.UserFlag;
@@ -39,6 +40,8 @@ public class MixinYggdrasilUserApiService {
 	// flags.add(UserFlag.PROFANITY_FILTER_ENABLED) // not adding this one either
 
 	FORCED_PROPERTIES = new UserProperties(flags.build(), Map.of());
+
+	NCRCore.LOGGER.info("MixinYggdrasilUserApiService initialized succesfully.");
     }
 
     @Inject(method = "fetchProperties", at = @At("RETURN"), cancellable = true)
