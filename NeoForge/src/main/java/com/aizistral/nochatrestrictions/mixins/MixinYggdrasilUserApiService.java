@@ -17,7 +17,7 @@ import com.mojang.authlib.yggdrasil.YggdrasilUserApiService;
 
 /**
  * Applies the chat/multiplayer restriction removal directly on the concrete
- * service class instead of wrapping it once at {@code Minecraft.createUserApiService}.
+ * service class instead of just wrapping it once at {@code Minecraft#createUserApiService}.
  *
  * In-game account switchers (e.g. IAS) build a brand new {@link YggdrasilUserApiService}
  * and swap it onto the Minecraft instance without going through the original wrapping
@@ -27,26 +27,14 @@ import com.mojang.authlib.yggdrasil.YggdrasilUserApiService;
  */
 @Mixin(value = YggdrasilUserApiService.class, remap = false)
 public class MixinYggdrasilUserApiService {
-    private static final UserProperties FORCED_PROPERTIES;
 
     static {
-	ImmutableSet.Builder<UserFlag> flags = ImmutableSet.builder();
-
-	flags.add(UserFlag.CHAT_ALLOWED); // always let the player access chat
-	flags.add(UserFlag.SERVERS_ALLOWED); // always let the player open multiplayer menu
-	flags.add(UserFlag.REALMS_ALLOWED); // always let the player open Realms menu
-	// flags.add(UserFlag.TELEMETRY_ENABLED); // not adding this for obvious reasons
-	// flags.add(UserFlag.OPTIONAL_TELEMETRY_AVAILABLE); // thanks but no thanks
-	// flags.add(UserFlag.PROFANITY_FILTER_ENABLED) // not adding this one either
-
-	FORCED_PROPERTIES = new UserProperties(flags.build(), Map.of());
-
 	NCRCore.LOGGER.info("MixinYggdrasilUserApiService initialized succesfully.");
     }
 
     @Inject(method = "fetchProperties", at = @At("RETURN"), cancellable = true)
     private void onFetchProperties(CallbackInfoReturnable<UserProperties> info) {
-	info.setReturnValue(FORCED_PROPERTIES);
+	info.setReturnValue(NCRCore.FORCED_USER_PROPERTIES);
     }
 
     @Inject(method = "newTelemetrySession", at = @At("HEAD"), cancellable = true)
