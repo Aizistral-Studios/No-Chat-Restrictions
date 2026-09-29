@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.aizistral.nochatrestrictions.core.NCRCore;
 import com.aizistral.nochatrestrictions.core.WrappedUserApiService;
 import com.mojang.authlib.minecraft.UserApiService;
-import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
+import com.mojang.authlib.services.MinecraftServicesDiscoveryService;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.main.GameConfig;
@@ -17,7 +17,7 @@ import net.minecraft.client.main.GameConfig;
 public class MixinMinecraft {
 
     @Inject(method = "createUserApiService", at = @At("RETURN"), cancellable = true)
-    private static void onCreateUserApi(YggdrasilAuthenticationService authService, GameConfig gameConfig,
+    private static void onCreateUserApi(MinecraftServicesDiscoveryService discoveryService, GameConfig gameConfig,
 	    CallbackInfoReturnable<UserApiService> info) {
 	UserApiService returnedService = info.getReturnValue();
 	assert returnedService != null;

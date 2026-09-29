@@ -1,3 +1,7 @@
+#### **\[Build MC26.3-v1.3.0\]:**
+
+- Initial release for Minecraft 26.3.
+
 #### **\[Build MC26.2-v1.2.2\]:**
 
 - Fixed Forge and NeoForge version of the mod not working;

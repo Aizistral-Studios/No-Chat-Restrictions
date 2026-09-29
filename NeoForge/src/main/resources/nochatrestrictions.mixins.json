@@ -2,11 +2,10 @@
   "required": true,
   "package": "com.aizistral.nochatrestrictions.mixins",
   "minVersion": "0.8",
-  "refmap": "nochatrestrictions.refmap.json",
   "mixins": [],
   "client": [
 	"MixinMinecraft",
-	"MixinYggdrasilUserApiService"
+	"MixinMinecraftServicesUserApiService"
   ],
   "injectors": {
     "defaultRequire": 1
