@@ -1,6 +1,6 @@
 #### **\[Build MC26.3-v1.3.0\]:**
 
-- Initial release for Minecraft 26.3.
+- Initial release for Minecraft 26.3 ([thanks to Shadowcat for some worthwhile improvements, #30](https://github.com/Aizistral-Studios/No-Chat-Restrictions/pull/30)).
 
 #### **\[Build MC26.2-v1.2.2\]:**
 
