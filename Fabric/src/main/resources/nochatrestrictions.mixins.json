@@ -4,8 +4,7 @@
     "minVersion": "0.8",
     "mixins": [],
     "client": [
-	  "MixinMinecraft",
-	  "MixinYggdrasilUserApiService"
+	  "MixinMinecraft"
     ],
 	"injectors": {
 		"defaultRequire": 1
