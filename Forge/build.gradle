@@ -14,7 +14,8 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '6.0.38'
     id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    // Locally patched plugin manually hardcodes the CurseForge environment to Client.
+    id "com.matthewprenger.cursegradle" version "1.4.0-ncr.1"
 }
 
 apply plugin: 'org.spongepowered.mixin'

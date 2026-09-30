@@ -1,4 +1,11 @@
 pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'com.matthewprenger.cursegradle') {
+                useModule("com.matthewprenger:CurseGradle:${requested.version}")
+            }
+        }
+    }
     repositories {
         maven { url = uri("${rootDir}/deps") }
         mavenLocal()

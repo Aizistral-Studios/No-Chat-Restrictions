@@ -2,7 +2,8 @@ plugins {
 	id 'fabric-loom' version "${loom_version}"
 	id 'maven-publish'
     id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    // Locally patched plugin manually hardcodes the CurseForge environment to Client.
+    id "com.matthewprenger.cursegradle" version "1.4.0-ncr.1"
 }
 
 version = project.mod_version
