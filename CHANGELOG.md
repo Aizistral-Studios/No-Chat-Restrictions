@@ -1,3 +1,7 @@
+#### **\[Build MC1.21.11-v1.0.3\]:**
+
+- Fixed incompatibility with [In-Game Account Switcher](https://modrinth.com/mod/in-game-account-switcher) on Forge and NeoForge ([thanks to Sw3ys, #28](https://github.com/Aizistral-Studios/No-Chat-Restrictions/pull/28)).
+
 #### **\[Build MC1.21.11-v1.0.2\]:**
 
 - Fixed Forge and NeoForge version of the mod not working;
