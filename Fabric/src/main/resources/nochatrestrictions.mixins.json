@@ -1,6 +1,7 @@
 {
 	"required": true,
 	"package": "com.aizistral.nochatrestrictions.mixins",
+	"plugin": "com.aizistral.nochatrestrictions.core.NCRMixinPlugin",
 	"compatibilityLevel": "JAVA_17",
     "minVersion": "0.8",
     "mixins": [],
