@@ -7,7 +7,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.aizistral.nochatrestrictions.core.NCRCore;
 import com.aizistral.nochatrestrictions.core.WrappedUserApiService;
+import com.aizistral.nochatrestrictions.core.WrappedUserProperties;
 import com.mojang.authlib.minecraft.UserApiService;
+import com.mojang.authlib.minecraft.UserApiService.UserProperties;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 
 import net.minecraft.client.Minecraft;
@@ -24,6 +26,15 @@ public class MixinMinecraft {
 	info.setReturnValue(new WrappedUserApiService(returnedService));
 
 	NCRCore.LOGGER.info("Successfully supplanted UserApiService with a wrapped version.");
+    }
+
+    @Inject(method = { "m_307512_", "userProperties" }, at = @At("RETURN"), cancellable = true)
+    public void onGetUserProperties(CallbackInfoReturnable<UserProperties> info) {
+	UserProperties properties = info.getReturnValue();
+
+	if (properties != null) {
+	    info.setReturnValue(WrappedUserProperties.of(properties));
+	}
     }
 
     @Inject(method = { "m_294837_", "isNameBanned" }, at = @At("HEAD"), cancellable = true)
