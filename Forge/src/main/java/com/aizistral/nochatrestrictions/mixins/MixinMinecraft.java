@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.aizistral.nochatrestrictions.core.NCRCore;
 import com.aizistral.nochatrestrictions.core.WrappedUserApiService;
+import com.aizistral.nochatrestrictions.core.WrappedUserProperties;
 import com.mojang.authlib.minecraft.UserApiService;
 import com.mojang.authlib.minecraft.UserApiService.UserProperties;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
@@ -32,7 +33,11 @@ public class MixinMinecraft {
     // Everything that gates chat/multiplayer/realms reads them back through here.
     @Inject(method = "userProperties", at = @At("RETURN"), cancellable = true)
     public void onGetUserProperties(CallbackInfoReturnable<UserProperties> info) {
-	info.setReturnValue(NCRCore.FORCED_USER_PROPERTIES);
+	UserProperties properties = info.getReturnValue();
+
+	if (properties != null) {
+	    info.setReturnValue(WrappedUserProperties.of(properties));
+	}
     }
 
     @Inject(method = "isNameBanned", at = @At("HEAD"), cancellable = true)
