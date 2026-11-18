@@ -1,10 +1,11 @@
 package com.aizistral.nochatrestrictions.core;
 
-import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 
-import com.google.common.collect.ImmutableSet;
+import org.jetbrains.annotations.Nullable;
+
+import com.aizistral.nochatrestrictions.config.NCRConfig;
 import com.mojang.authlib.minecraft.TelemetrySession;
 import com.mojang.authlib.minecraft.UserApiService;
 import com.mojang.authlib.minecraft.report.AbuseReportLimits;
@@ -12,22 +13,8 @@ import com.mojang.authlib.yggdrasil.request.AbuseReportRequest;
 import com.mojang.authlib.yggdrasil.response.KeyPairResponse;
 
 public class WrappedUserApiService implements UserApiService {
-    private static final UserProperties FORCED_PROPERTIES;
-
-    static {
-	ImmutableSet.Builder<UserFlag> flags = ImmutableSet.builder();
-
-	flags.add(UserFlag.CHAT_ALLOWED); // always let the player access chat
-	flags.add(UserFlag.SERVERS_ALLOWED); // always let the player open multiplayer menu
-	flags.add(UserFlag.REALMS_ALLOWED); // always let the player open Realms menu
-	// flags.add(UserFlag.TELEMETRY_ENABLED); // not adding this for obvious reasons
-	// flags.add(UserFlag.OPTIONAL_TELEMETRY_AVAILABLE); // thanks but no thanks
-	// flags.add(UserFlag.PROFANITY_FILTER_ENABLED) // not adding this one either
-
-	FORCED_PROPERTIES = new UserProperties(flags.build(), Map.of());
-    }
-
     private final UserApiService service;
+    private @Nullable UserProperties properties = null;
 
     public WrappedUserApiService(UserApiService service) {
 	this.service = service;
@@ -35,7 +22,10 @@ public class WrappedUserApiService implements UserApiService {
 
     @Override
     public UserProperties properties() {
-	return FORCED_PROPERTIES;
+	if (this.properties != null)
+	    return this.properties;
+	else
+	    return this.properties = WrappedUserProperties.of(this.service.properties());
     }
 
     @Override
@@ -50,7 +40,10 @@ public class WrappedUserApiService implements UserApiService {
 
     @Override
     public TelemetrySession newTelemetrySession(Executor executor) {
-	return TelemetrySession.DISABLED;
+	if (NCRConfig.getInstance().allowTelemetry())
+	    return this.service.newTelemetrySession(executor);
+	else
+	    return TelemetrySession.DISABLED;
     }
 
     // Methods below primarily concern chat reporting. Not doing anything with them
