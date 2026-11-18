@@ -42,7 +42,7 @@ public record NCRConfig(boolean enableMod, boolean allowTelemetry, boolean allow
 	NCRCore.LOGGER.info("Telemetry Allowed: {}", config.allowTelemetry());
 	NCRCore.LOGGER.info("Profanity Filter Allowed: {}", config.allowProfanityFilter());
 
-	NCRCore.LOGGER.debug("Writing config file {} back to disk...");
+	NCRCore.LOGGER.debug("Writing config file {} back to disk...", fileName);
 	writeFile(fileName, config);
 
 	return config;
