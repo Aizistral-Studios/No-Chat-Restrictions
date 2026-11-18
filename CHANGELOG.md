@@ -1,3 +1,9 @@
+#### **\[Build MC26.2-v1.3.0\]:**
+
+- Added `enableMod` option to the config file, allowing users to disable the mod without removing it.
+- Fixed config debug log message missing the file name.
+- Redesigned mod logo.
+
 #### **\[Build MC26.2-v1.2.3\]:**
 
 - Fixed incompatibility with [In-Game Account Switcher](https://modrinth.com/mod/in-game-account-switcher) on Forge and NeoForge ([thanks to Sw3ys, #27](https://github.com/Aizistral-Studios/No-Chat-Restrictions/pull/27)).
