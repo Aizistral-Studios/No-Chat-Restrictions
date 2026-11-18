@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
 import java.util.Optional;
 
 import org.jetbrains.annotations.Nullable;
@@ -11,15 +12,18 @@ import org.jetbrains.annotations.Nullable;
 import com.aizistral.nochatrestrictions.core.NCRCore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
-import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.loading.FMLPaths;
 
-public record NCRConfig(boolean allowTelemetry, boolean allowProfanityFilter) {
+public record NCRConfig(boolean enableMod, boolean allowTelemetry, boolean allowProfanityFilter) {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static @Nullable NCRConfig instance = null;
 
     private static NCRConfig getDefault() {
-	return new NCRConfig(false, false);
+	return new NCRConfig(true, false, false);
     }
 
     public static NCRConfig getInstance() {
@@ -34,6 +38,7 @@ public record NCRConfig(boolean allowTelemetry, boolean allowProfanityFilter) {
 	NCRCore.LOGGER.debug("Reading config file {}...", fileName);
 	NCRConfig config = readFile(fileName).orElseGet(NCRConfig::getDefault);
 
+	NCRCore.LOGGER.info("Mod Enabled: {}", config.enableMod());
 	NCRCore.LOGGER.info("Telemetry Allowed: {}", config.allowTelemetry());
 	NCRCore.LOGGER.info("Profanity Filter Allowed: {}", config.allowProfanityFilter());
 
@@ -43,14 +48,24 @@ public record NCRConfig(boolean allowTelemetry, boolean allowProfanityFilter) {
 	return config;
     }
 
+    private static Path getConfigFile(String fileName) {
+	return FMLPaths.CONFIGDIR.get().resolve(fileName);
+    }
+
     private static Optional<NCRConfig> readFile(String fileName) {
-	Path file = Minecraft.getInstance().gameDirectory.toPath().resolve("config").resolve(fileName);
+	Path file = getConfigFile(fileName);
 
 	if (!Files.isRegularFile(file))
 	    return Optional.empty();
 
 	try (BufferedReader reader = Files.newBufferedReader(file)) {
-	    return Optional.of(GSON.fromJson(reader, NCRConfig.class));
+	    JsonObject json = GSON.toJsonTree(getDefault()).getAsJsonObject();
+
+	    for (Map.Entry<String, JsonElement> entry : JsonParser.parseReader(reader).getAsJsonObject().entrySet()) {
+		json.add(entry.getKey(), entry.getValue());
+	    }
+
+	    return Optional.of(GSON.fromJson(json, NCRConfig.class));
 	} catch (Exception ex) {
 	    NCRCore.LOGGER.fatal("Could not read config file: {}", file);
 	    NCRCore.LOGGER.fatal("This likely indicates the file is corrupted. "
@@ -61,7 +76,7 @@ public record NCRConfig(boolean allowTelemetry, boolean allowProfanityFilter) {
     }
 
     private static void writeFile(String fileName, NCRConfig config) {
-	Path file = Minecraft.getInstance().gameDirectory.toPath().resolve("config").resolve(fileName);
+	Path file = getConfigFile(fileName);
 
 	try {
 	    Files.createDirectories(file.getParent());
