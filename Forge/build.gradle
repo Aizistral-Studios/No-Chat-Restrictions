@@ -103,8 +103,6 @@ jar {
     }
 }
 
-jar.finalizedBy('reobfJar')
-
 curseforge {
 
     project {
