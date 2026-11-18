@@ -48,7 +48,7 @@ public final class NCRConfig {
 
 	NCRCore.LOGGER.info("Mod Enabled: {}", config.enableMod());
 
-	NCRCore.LOGGER.debug("Writing config file {} back to disk...");
+	NCRCore.LOGGER.debug("Writing config file {} back to disk...", fileName);
 	writeFile(fileName, config);
 
 	return config;
