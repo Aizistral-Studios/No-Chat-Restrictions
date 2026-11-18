@@ -133,7 +133,7 @@ task publishModrinth (type: TaskModrinthUpload){
 	changelog = rootProject.file("../CHANGELOG.md").text
     uploadFile = jar
 	addGameVersion('1.16.4')
-	addGameVersion('1.16.6')
+	addGameVersion('1.16.5')
 	addLoader('forge')
 }
 
